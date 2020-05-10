@@ -1,0 +1,2 @@
+# TheElementOfComputingSystem
+「コンピュータシステムの理論と実装」を読んでコンピュータの仕組みを学ぶ
