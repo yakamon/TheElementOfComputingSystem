@@ -31,6 +31,8 @@
   - 10,11章 コンパイラ
   - 12章 オペレーティングシステム
 
+***
+
 ## イントロダクション
 
 本書で学ぶこと。
@@ -60,4 +62,18 @@
 
 のどちらによっても全体を捉えることができる。
 
-(2020-05-10)
+***
+
+## 第1章 ブール論理
+
+![](assets/img/project01_01_gate_is.jpg)
+![](assets/img/project01_02_interface_and_implementation.jpg)
+![](assets/img/project01_03_physical_implementation_of_gate.jpg)
+![](assets/img/project01_04_implement_And.jpg)
+![](assets/img/project01_05_implement_Or.jpg)
+![](assets/img/project01_06_implement_Not.jpg)
+![](assets/img/project01_07_implement_Xor.jpg)
+![](assets/img/project01_08_implement_Mux.jpg)
+![](assets/img/project01_09_implement_DMux.jpg)
+
+(2020-05-28 Thu)
