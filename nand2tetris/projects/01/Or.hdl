@@ -14,7 +14,13 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    Nand(a=a, b=a, out=nandAA);
-    Nand(a=b, b=b, out=nandBB);
-    Nand(a=nandAA, b=nandBB, out=out);
+    // Use only Nand
+    Nand(a=a, b=a, out=ANandA);
+    Nand(a=b, b=b, out=BNandB);
+    Nand(a=ANandA, b=BNandB, out=out);
+
+    // Use Not
+    // Not(in=a, out=NotA);
+    // Not(in=b, out=NotB);
+    // Nand(a=NotA, b=NotB, out=out);
 }

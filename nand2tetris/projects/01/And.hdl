@@ -14,13 +14,17 @@ CHIP And {
     OUT out;
 
     PARTS:
-    // Using NAND
-    // Nand(a=a, b=a, out=nand2A);
-    // Nand(a=nand2A, b=a, out=nand3A);
-    // Nand(a=a, b=b, out=nandAB);
-    // Nand(a=nand3A, b=nandAB, out=out);
+    // Use only Nand
+    // Nand(a=a, b=a, out=ANandA);
+    // Nand(a=ANandA, b=a, out=ANandANandA);
+    // Nand(a=a, b=b, out=ANandB);
+    // Nand(a=ANandANandA, b=ANandB, out=out);
 
-    // Using TRUE
-    Nand(a=a, b=b, out=nandAB);
-    Nand(a=nandAB, b=true, out=out);
+    // Use Not
+    // Nand(a=a, b=b, out=ANandB);
+    // Not(in=ANandB, out=out);
+
+    // Use Nand and Constant 1
+    Nand(a=a, b=b, out=ANandB);
+    Nand(a=ANandB, b=true, out=out);
 }
