@@ -32,11 +32,19 @@ CHIP Or8Way {
     // Not(in=AndNot0To7, out=out);
 
     // Use Or
-    Or(a=in[0], b=in[1], out=Or0To1);
-    Or(a=Or0To1, b=in[2], out=Or0To2);
-    Or(a=Or0To2, b=in[3], out=Or0To3);
-    Or(a=Or0To3, b=in[4], out=Or0To4);
-    Or(a=Or0To4, b=in[5], out=Or0To5);
-    Or(a=Or0To5, b=in[6], out=Or0To6);
-    Or(a=Or0To6, b=in[7], out=out);
+    // Or(a=in[0], b=in[1], out=Or0To1);
+    // Or(a=Or0To1, b=in[2], out=Or0To2);
+    // Or(a=Or0To2, b=in[3], out=Or0To3);
+    // Or(a=Or0To3, b=in[4], out=Or0To4);
+    // Or(a=Or0To4, b=in[5], out=Or0To5);
+    // Or(a=Or0To5, b=in[6], out=Or0To6);
+    // Or(a=Or0To6, b=in[7], out=out);
+
+    Or(a=in[0], b=in[1], out=Or01);
+    Or(a=in[2], b=in[3], out=Or23);
+    Or(a=in[4], b=in[5], out=Or45);
+    Or(a=in[6], b=in[7], out=Or67);
+    Or(a=Or01, b=Or23, out=Or0To3);
+    Or(a=Or45, b=Or67, out=Or4To7);
+    Or(a=Or0To3, b=Or4To7, out=out);
 }
