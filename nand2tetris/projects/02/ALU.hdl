@@ -55,20 +55,22 @@ CHIP ALU {
     // function
     Add16(a=X, b=Y, out=AddXY);
     And16(a=X, b=Y, out=AndXY);
-    Mux16(a=AndXY, b=AddXY, sel=f, out=Out);
+    Mux16(a=AndXY, b=AddXY, sel=f, out=FnOut);
 
     // no
-    Not16(in=Out, out=NotOut);
-    Mux16(a=Out, b=NotOut, sel=no, out=Out1);
-    And16(a=Out1, b=true, out=out);
+    Not16(in=FnOut, out=NotFnOut);
+    Mux16(a=FnOut, b=NotFnOut, sel=no, out=Out);
+
+    // out
+    And16(a=Out, b=true, out=out);
 
     // zr
-    And16(a=Out1, b=true, out[0..7]=Half0, out[8..15]=Half1);
+    And16(a=Out, b=true, out[0..7]=Half0, out[8..15]=Half1);
     Or8Way(in=Half0, out=NotZeroHalf0);
     Or8Way(in=Half1, out=NotZeroHalf1);
     Or(a=NotZeroHalf0, b=NotZeroHalf1, out=NotZero);
     Not(in=NotZero, out=zr);
 
     // ng
-    And16(a=Out1, b[0..14]=false, b[15]=true, out[15]=ng);
+    And16(a=Out, b[0..14]=false, b[15]=true, out[15]=ng);
 }
