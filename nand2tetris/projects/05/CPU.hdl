@@ -61,14 +61,12 @@ CHIP CPU {
     ALU(x=X, y=Y, zx=zx, nx=nx, zy=zy, ny=ny, f=f, no=no, out=outM, out=outALU, zr=zr, ng=ng);
 
     // jump condition
-    Or(a=ng, b=zr, out=ngOrzr);
-    Not(in=ngOrzr, out=ps);
+    Nor(a=ng, b=zr, out=ps);
     And(a=compNg, b=ng, out=andNg);
     And(a=compZr, b=zr, out=andZr);
     And(a=compPs, b=ps, out=andPs);
-    Or(a=andNg, b=andZr, out=orAndNgZr);
-    Or(a=orAndNgZr, b=andPs, out=loadPC);
+    Or3Way(a=andNg, b=andZr, c=andPs, out=loadPC);
 
-    // program counter
+    // (P)rogram (C)ounter
     PC(in=outA, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
 }
